@@ -1,0 +1,22 @@
+import string
+def checkio(text):
+    text = text.lower()
+    return max(string.ascii_lowercase, key=text.count)
+    
+    
+#自己写的
+def checkio(text):
+    s_text=text.lower()
+    letters={}
+
+    for i in list(s_text):
+        if i not in letters.keys()  and i.isalpha():
+            letters[i]=1
+        elif i in letters.keys() and i.isalpha():
+            letters[i]+=1
+    item=list(letters.items())
+    c_letters=dict(sorted(letters.items(),key=lambda item:(-item[1],item[0])))
+      
+
+    #replace this for solution
+    return list(c_letters.keys())[0]
